@@ -1,7 +1,7 @@
 #' Defines a color palette
 #'
 #' This function defines a color palette and returns a vector of colors. The
-#' paletts itself are adapted from the ColorBrewer project.
+#' palettes itself are adapted from the ColorBrewer project.
 #'
 #' The parameter \code{type} controls the output palette type as follows:
 #' \describe{
@@ -12,7 +12,7 @@
 #'        \item{"orange"}{MultiHue yellow - orange - brown}
 #'        \item{"red"}{MultiHue yellow - orange red}
 #'        \item{"red-white-bule","bwr"}{red - white - blue colors}
-#'        \item{"rainbow"}{reproduces the rainbow colorset}
+#'        \item{"rainbow"}{reproduces the rainbow color set}
 #'        \item{"black-white","bw"}{gray scale colors}
 #'        \item{"white-black","wb"}{gray scale colors from white to black}
 #'        \item{"jet.colors","jc"}{dark blue to dark red}
@@ -25,9 +25,8 @@
 #' @param n number of colors to produce
 #' @param inv revert the order of colors
 #' @param type sets the type of color palette. See Details
-#' @return retuns a vector of colors to be passed to \code{image} or \code{rasterImage}
-#' @references \url{www.ColorBrewer.org} by Cynthia A. Brewer, Geography, Pennsylvania State University
-#' @import plotrix
+#' @return returns a vector of colors to be passed to \code{image} or \code{rasterImage}
+#' @references \url{http://colorbrewer2.org} by Cynthia A. Brewer, Geography, Pennsylvania State University
 #' @importFrom grDevices colorRampPalette colors rainbow
 #' @examples
 #' # default "spectral" palette
@@ -49,10 +48,10 @@ colorPalette <- function(n=NULL,type="spectral",inv=F)
   ### wenn eine Liste aus Farben oben steht ###
   if(length(type) > 1 & is.character(type))
   {
-    if(sum(type %in% colors()) != length(type) & sum(grep("#",type)) == 0 )
+    if(sum(type %in% grDevices::colors()) != length(type) & sum(grep("#",type)) == 0 )
       stop("incorrect color or palette definition")
 
-    colfun <- colorRampPalette(type,interpolate="spline")
+    colfun <- grDevices::colorRampPalette(type,interpolate="spline")
     return(colfun(n))
   }
 
@@ -109,7 +108,7 @@ colorPalette <- function(n=NULL,type="spectral",inv=F)
   if(is.null(col.pal))
     stop("No valid pallete definition")
 
-  colfun <- colorRampPalette(col.pal,interpolate="spline")
+  colfun <- grDevices::colorRampPalette(col.pal,interpolate="spline")
   color <- colfun(ifelse(n==0,length(col.pal),n))
 
   if(is.null(color))

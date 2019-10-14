@@ -1,7 +1,7 @@
 Package: rasterImage
 Type: Package
-Title: An Improved Wrapper of Image()
-Version: 0.3.0
+Title: An Improved Wrapper of image()
+Version: 0.4.0
 Author: Martin Seilmayer
 Maintainer: Martin Seilmayer <m.seilmayer@hzdr.de>
 Description: This is a wrapper function for image(), which makes reasonable
@@ -9,8 +9,8 @@ Description: This is a wrapper function for image(), which makes reasonable
 License: GPL-2
 Depends: plotrix,grDevices,R (>= 2.15.0)
 LazyData: TRUE
-RoxygenNote: 5.0.1
-Packaged: 2016-09-09 13:41:01 UTC; ms5760
+RoxygenNote: 6.1.1
 NeedsCompilation: no
+Packaged: 2019-10-14 07:21:26 UTC; ms5760
 Repository: CRAN
-Date/Publication: 2016-09-10 01:33:08
+Date/Publication: 2019-10-14 08:40:07 UTC

@@ -14,11 +14,11 @@ colorPalette(n = NULL, type = "spectral", inv = F)
 \item{inv}{revert the order of colors}
 }
 \value{
-retuns a vector of colors to be passed to \code{image} or \code{rasterImage}
+returns a vector of colors to be passed to \code{image} or \code{rasterImage}
 }
 \description{
 This function defines a color palette and returns a vector of colors. The
-paletts itself are adapted from the ColorBrewer project.
+palettes itself are adapted from the ColorBrewer project.
 }
 \details{
 The parameter \code{type} controls the output palette type as follows:
@@ -30,7 +30,7 @@ The parameter \code{type} controls the output palette type as follows:
        \item{"orange"}{MultiHue yellow - orange - brown}
        \item{"red"}{MultiHue yellow - orange red}
        \item{"red-white-bule","bwr"}{red - white - blue colors}
-       \item{"rainbow"}{reproduces the rainbow colorset}
+       \item{"rainbow"}{reproduces the rainbow color set}
        \item{"black-white","bw"}{gray scale colors}
        \item{"white-black","wb"}{gray scale colors from white to black}
        \item{"jet.colors","jc"}{dark blue to dark red}
@@ -48,6 +48,5 @@ barplot(rep(1,10), col = colorPalette(10))
 barplot(rep(1,10), col = colorPalette(n = 10, type = c("red","blue","yellow")))
 }
 \references{
-\url{www.ColorBrewer.org} by Cynthia A. Brewer, Geography, Pennsylvania State University
+\url{http://colorbrewer2.org} by Cynthia A. Brewer, Geography, Pennsylvania State University
 }
-

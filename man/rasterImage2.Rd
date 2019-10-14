@@ -7,7 +7,8 @@
 rasterImage2(x = NULL, y = NULL, z, zlim = NULL, xlim = NULL,
   ylim = NULL, dim.max = NULL, plot.zero.line = T, regularGrid = T,
   zlab = NULL, z.cex = 0.5, z.adj = c(0.5, 0.5), z.format = "fg",
-  ndz = 7, ncolors = 256, palette = "spectral", palette.inv = F, ...)
+  ndz = 7, ncolors = 256, palette = "spectral", palette.inv = F,
+  ...)
 }
 \arguments{
 \item{x}{x-axis vector corresponding to the z-matrix}
@@ -26,8 +27,9 @@ rasterImage2(x = NULL, y = NULL, z, zlim = NULL, xlim = NULL,
 
 \item{ylim}{the y limits of the plot.}
 
-\item{dim.max}{defines the dimensions of z, if it needs to be rescaled.
-This parameter can improve plotting speed.}
+\item{dim.max}{defines the dimensions of the visible area of z. It automatically
+invokes a rescale. In case of large data sets this parameter
+can improve plotting speed.}
 
 \item{plot.zero.line}{logical, if a line at \code{x = 0} and \code{y = 0} is
 to be plotted.}
@@ -46,10 +48,10 @@ the global \code{par()$cex} value}
 \item{z.adj}{a two component vector. It sets the left/right and top/bottom
 justification}
 
-\item{z.format}{controls how the numbers besides the colorscale are comosed.
+\item{z.format}{controls how the numbers besides the color scale are composed.
 It works like the \code{format} option of \code{\link{formatC}}}
 
-\item{ndz}{sets the axis breakes right to the colorscale}
+\item{ndz}{sets the axis breaks right to the color scale}
 
 \item{ncolors}{number of colors to use in the plot}
 
@@ -61,13 +63,18 @@ It works like the \code{format} option of \code{\link{formatC}}}
 }
 \description{
 The function is a wrapper for the \code{image()} function, but with a comfortable
-comtrol of the z-axis and its color legend. The wrapper also supports image
+control of the z-axis and its color legend. The wrapper also supports image
 resizing (resolution) and png output for better export.
 }
+\details{
+The \code{regularGrid} option forces interpolation in case of irregular spacing
+of \code{x} or \code{y}. All data is then projected on a regular grid.
+This correction invokes a spline interpolation. Missing \code{NA} values
+are ignored.
+}
 \examples{
- rasterImage2( z = volcano, palette = "spectral", dim.max = c(500,500)
+ rasterImage2( z = volcano, palette = "spectral", dim.max = c(500,100)
              ,zlab = "Height", z.adj = c(0,1) ,z.cex = 1
              ,main = "Volcano Data Set"
            )
 }
-
